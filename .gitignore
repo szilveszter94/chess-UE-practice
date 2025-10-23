@@ -1,0 +1,49 @@
+# Unreal Engine
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+.vscode/
+*.VC.db
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.userprefs
+*.sln
+*.sln.DotSettings
+*.xcodeproj
+*.xcworkspace
+*.xcuserdatad/
+*.xcuserdata/
+*.obj
+*.pdb
+*.exe
+*.dll
+*.lib
+*.app
+*.dSYM
+
+# If using Rider/CLion
+.idea/
+
+# Unreal Engine local config
+Config/DefaultEditorPerProjectUserSettings.ini
+Config/DefaultEditorSettings.ini
+
+# Ignore temporary autosaves/backups
+*.autosave
+*.bak
+*_Backup.uasset
+*_BuiltData.uasset
+
+# Ignore Generated project files (recreate with GenerateProjectFiles)
+*.xcodeproj
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Optional: ignore large source control cache
+SourceControl/
