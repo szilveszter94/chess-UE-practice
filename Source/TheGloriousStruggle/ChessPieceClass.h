@@ -8,6 +8,14 @@
 class AChessBoardClass;
 
 UENUM(BlueprintType)
+enum class EPieceColor : uint8
+{
+    None,
+    White,
+    Black
+};
+
+UENUM(BlueprintType)
 enum class EPieceType : uint8
 {
     King,
@@ -36,4 +44,8 @@ public:
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Chess")
     EPieceType PieceType;
+
+    int32 Row;
+    int32 Col;
+    EPieceColor PieceColor;
 };

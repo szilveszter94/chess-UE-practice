@@ -1,5 +1,5 @@
 #include "ChessPieceClass.h"
-#include "ChessBoardClass.h" // full class needed for TActorIterator
+#include "ChessBoardClass.h"
 #include "EngineUtils.h"
 
 AChessPieceClass::AChessPieceClass()
@@ -21,14 +21,23 @@ void AChessPieceClass::HandleClicked(AActor* TouchedActor, FKey ButtonPressed)
 {
     UE_LOG(LogTemp, Warning, TEXT("Chess piece clicked!"));
 
-    // Notify the board
+    // Find the board
+    AChessBoardClass* Board = nullptr;
     for (TActorIterator<AChessBoardClass> It(GetWorld()); It; ++It)
     {
-        AChessBoardClass* Board = *It;
-        if (Board)
-        {
-            Board->SelectedPiece = this;
-            break;
-        }
+        Board = *It;
+        break;
+    }
+    if (!Board) return;
+
+    if (!Board->SelectedPiece || Board->SelectedPiece->PieceColor == this->PieceColor)
+    {
+        Board->SelectedPiece = this;
+        UE_LOG(LogTemp, Warning, TEXT("Piece selected: %s"), *GetName());
+    }
+    else
+    {
+        FVector ClickLocation = GetActorLocation();
+        Board->HandleTileClick(ClickLocation, this);
     }
 }
